@@ -3,9 +3,8 @@ def isSafe(pLine, direction="decrease"):
 		direction="increase"
 	for index in range(len(pLine)-1):
 		difference=pLine[index]-pLine[index+1]
-		if (difference<0 and direction=="increase") or (difference>0 and direction=="decrease") or not (-3<=difference<=3 and difference!=0):
-			return
-	return True
+		if not ((difference<0 and direction=="increase") or (difference>0 and direction=="decrease") or not (-3<=difference<=3 and difference!=0)):
+			return True
 
 def part1():
 	print(len([True for line in open("02_input.txt", "r").readlines() if isSafe(list(map(int, line.split())))]))
