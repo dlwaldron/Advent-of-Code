@@ -10,9 +10,8 @@ def part1():
 	print(len([True for line in open("02_input.txt", "r").readlines() if isSafe(list(map(int, line.split())))]))
 
 def part2():
-	lines=open("02_input.txt", "r").readlines()
 	safe=0
-	for line in lines:
+	for line in open("02_input.txt", "r").readlines():
 		line=list(map(int, line.split()))
 		for i in range(-1, len(line)):
 			if isSafe([val for index, val in enumerate(line) if index!=i])==True:
